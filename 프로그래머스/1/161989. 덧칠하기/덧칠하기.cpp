@@ -8,8 +8,6 @@ int solution(int n, int m, vector<int> section) {
     int paint = section[0];
     for (auto i : section)
     {
-        if (paint > n) return answer;
-        
         if (i >= paint)
         {
             answer++;
