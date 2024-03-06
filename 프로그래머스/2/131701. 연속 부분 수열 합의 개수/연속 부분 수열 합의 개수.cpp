@@ -1,24 +1,20 @@
 #include <string>
 #include <vector>
-#include <set>
+#include <unordered_set>
 
 using namespace std;
 
 int solution(vector<int> elements) {
-    set<int> s;
-    for (int i = 1; i <= elements.size(); i++)
-    {
-        for (int j = 0; j < elements.size(); j++)
-        {
-            int sum = 0;
+    unordered_set<int> uniqueSums;
+    int n = elements.size();
 
-            for (int k = j; k < j + i; k++)
-            {
-                sum += elements[k % elements.size()];          
-            }
-
-            s.insert(sum);
+    for (int i = 0; i < n; ++i) { // 시작 인덱스
+        int sum = 0;
+        for (int length = 1; length <= n; ++length) { // 부분 배열의 길이
+            sum += elements[(i + length - 1) % n];
+            uniqueSums.insert(sum);
         }
     }
-    return s.size();
+
+    return uniqueSums.size();
 }
