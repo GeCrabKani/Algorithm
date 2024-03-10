@@ -5,24 +5,12 @@ using namespace std;
 
 vector<int> solution(int n, long long left, long long right) {
     vector<int> answer;
-    long long row = left / n;
-    long long col = left % n;
-
-    for (int i = col + 1; i <= n; i++)
-    {
-        i > row + 1 ? answer.push_back(i) : answer.push_back(row + 1);
-
-        if (answer.size() == (right - left + 1)) return answer;
+    
+    for (long long i = left; i <= right; ++i) {
+        long long row = i / n;
+        long long col = i % n;
+        answer.push_back(max(row, col) + 1);
     }
-    while (true)
-    {
-        row++;
-        for (int i = 1; i <= n; i++)
-        {
-            i > row + 1 ? answer.push_back(i) : answer.push_back(row + 1);
-
-            if (answer.size() == (right - left + 1)) return answer;
-        }
-    }
+    
     return answer;
 }
