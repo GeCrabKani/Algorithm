@@ -3,14 +3,6 @@
 
 using namespace std;
 
-string getSubstringAfter(const string& str, const string& delimiter) {
-    size_t pos = str.find(delimiter);
-    if (pos != string::npos) {
-        return str.substr(pos + delimiter.length());
-    }
-    return "";
-}
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -30,7 +22,7 @@ int main() {
 
     for (auto member : m)
     {
-        cout << member.first << " " << member.second << endl;
+        cout << member.first << " " << member.second << "\n";
     }
 
     return 0;
